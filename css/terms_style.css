@@ -1,0 +1,159 @@
+/* Page background */
+body {
+  background: radial-gradient(circle at center, #0b1a3d 0%, #000 100%);
+  color: #e0e0e0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header section */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.header img {
+  max-height: 180px;
+  animation: rotate 8s linear infinite; /* slow spin for KBC logo */
+  filter: drop-shadow(0 0 12px gold);
+}
+
+/* Container styling */
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+  align-items: stretch;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: rgba(15, 25, 60, 0.9); /* deep blue translucent card */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4); /* golden glow */
+}
+
+/* Left content */
+.content {
+  flex: 2;
+  padding-right: 20px;
+}
+
+/* Right photo */
+.host-photo {
+  flex: 1;                /* take available space on the right */
+    /* stretch image vertically */
+}
+
+.host-photo img {
+  width: 100%;
+  height: 985px;       /* now fills parent */
+  object-fit: cover;  /* crops proportionally */
+  border-radius: 12px;
+}
+
+/* Headings */
+.container h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: gold;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+/* Section titles */
+.container p {
+  font-weight: 600;
+  margin-top: 20px;
+  color: #ffd700; /* gold accent */
+}
+
+/* Ordered lists */
+ol {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+ol li {
+  margin-bottom: 8px;
+  color: #e0e0e0;
+}
+
+/* Note box */
+.note {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid gold;
+  padding: 12px 15px;
+  margin: 20px 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* Checkbox + button */
+#agree {
+  margin-right: 8px;
+}
+button {
+  display: block;
+  margin: 25px auto;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: gold;
+  border: 2px solid gold;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+}
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #2a5298, #1e3c72);
+  box-shadow: 0 0 15px gold;
+}
+button:disabled {
+  background: #444;
+  color: #aaa;
+  border-color: #666;
+  cursor: not-allowed;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Spin animation for logo */
+.spin {
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.intro-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;   /* fills screen without distortion */
+  z-index: 9999;       /* on top of everything */
+  display: none;       /* hidden until start */
+}

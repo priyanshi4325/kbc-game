@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KBC Start</title>
+    <link rel="stylesheet" href="css/start_style.css">
+</head>
+
+<body class="start-screen">
+
+    <div class="start-container">
+        <!-- <h1 class="title-kbc">KAUN BANEGA<br>CROREPATI</h1> -->
+        <!-- <img src="media/ab_torso.png" class="host-img"> -->
+        <button id="startBtn" class="start-btn">START GAME ▶</button>
+
+    </div>
+
+    <script>
+        // const introSound = new Audio("media/sounds/question_start.mp3");
+
+        document.getElementById("startBtn").addEventListener("click", () => {
+                window.location.href = "game.html";
+        });
+    </script>
+</body>
+
+</html>

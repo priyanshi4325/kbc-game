@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC Form</title>
+
+    <!-- Head Section -->
+
+    <link rel="stylesheet" href="css/form_style.css">
+    <script src="js/form_script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="timer_function();generateCaptcha();timer()">
+
+
+    <!-- Main Content Container -->
+
+    <div class="container">
+
+        <h1>Form</h1>
+
+        <!-- Greeting Section -->
+
+        <div class="greeting">
+            <h1 id="timer"></h1>
+            <img id="greet_image" src="">
+            <h2 id="greet_msg"></h2>
+        </div>
+
+        <!-- Form Section -->
+
+        <div class="form">
+            <form action="terms.html" onsubmit="return validation()">
+                <div class="photo-section">
+  <div class="photo-upload">
+    <img id="preview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Photo Preview">
+    <input type="file" name="photo" id="p" accept="image/*">
+    <div class="overlay">Choose File</div>
+  </div>
+
+  <div class="photo-info">
+    <label for="p">Upload Candidate Photo <span id="star">*</span></label>
+    <p class="photo-note">Only JPG, JPEG, or PNG formats allowed (Max 2MB)</p>
+    <span id="p_error"></span>
+  </div>
+</div>
+                <div class="timer">
+                    <h1 id="clock"></h1>
+                </div>
+                <span class="field_name">Name:</span><span class="star">*</span>
+                <input type="text" id="uname" onkeyup="uname_check(); validation();textOnly()" onclick="uname_check()"
+                    class="field" id="Name">
+                <span id="uname_error_msg" class="error_msg">Please Enter Name</span><br>
+
+                <span class="field_name">Age:</span> <span class="star">*</span>
+                <input type="text" id="age" onkeyup="age_check(); validation();numberOnly()" onclick="age_check()"
+                    onkeypress="return AgeMaxLength(event)" class="field">
+                <span id="age_error_msg" class="error_msg">Please Enter Age</span><br>
+
+                <span class="field_name">Email:</span> <span class="star">* </span><input type="email" id="uemail"
+                    onkeyup="email_check(); validation(); check_email_fn()" onclick="email_check()" class="field">
+                <span id="uemail_error_msg" class="error_msg">Please Enter Email</span>
+                <br><br>
+
+                <span class="field_name">Password:</span> <span class="star">* </span> <input type="password" id="pass"
+                    onkeyup="pass_check(); validation()" onclick="pass_check()" class="field">
+                <i onclick="hide()" id="open_eye" class="fa fa-eye" style="display: none;"></i>
+                <i onclick="show()" id="close_eye" class="fa fa-eye-slash"></i>
+                <span id="pass_error_msg" class="error_msg">Please Enter Password</span>
+                <br>
+
+                <!-- Password Validation -->
+
+                <div class="password_validation">
+                    <p class="pass_heading"><b>Password Validation</b></p>
+                    <span id="pass_cond">Password should have at least <br> <span id="eight_char">8
+                            characters</span> <br> <span id="one_upper">
+                            One uppercase letter</span> <br> <span id="one_lower">One
+                            lowercase letter</span> <br> <span id="one_digit">One digit</span> <br> <span
+                            id="one_special">One
+                            special character.</span></span>
+                </div> <br><br>
+
+                <span class="field_name">Mobile Number:</span> <span class="star">* </span><input type="number" id="num"
+                    onkeyup="num_check(); validation();numberOnly()" onclick="num_check()"
+                    onkeypress="return MaxLength(event)" class="field">
+                <span id="num_error_msg" class="error_msg">Please Enter Mobile Number</span>
+                <br><br>
+
+                <span class="field_name">DOB:</span> <span class="star">* </span><input type="date" id="dob"
+                    onchange="dob_check(); validation()" onclick="dob_check()" class="field_date">
+                <span id="dob_error_msg" class="error_msg">Please Enter Date of Birth</span><br><br>
+
+                <span class="field_name">TOB:</span> <span class="star">* </span><input type="time" id="tob"
+                    onchange="tob_check(); validation()" onclick="tob_check()" class="field_time">
+                <span id="tob_error_msg" class="error_msg">Please Enter Time of Birth</span>
+                <br><br>
+
+                <span class="field_name">City:</span><span class="star">* </span>
+                <select id="city" onchange="city_check(); validation()" onclick="city_check()">
+                    <option value="">Select City</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Ujjain">Ujjain</option>
+                </select>
+                <span id="city_error_msg" class="error_msg">Please Select City</span>
+                <br><br>
+
+                <span class="field_name">Address:</span> <span class="star">* </span> <br> <textarea id="add"
+                    onkeyup="add_check(); validation()" onclick="add_check()" onkeydown="limitLines()"></textarea>
+                <span id="add_error_msg" class="error_msg">Please Enter Address</span><br><br>
+
+                <div class="captcha-row">
+                <canvas id="captchaCanvas" width="150" height="60"></canvas>
+                <button id="reloadButton" onclick="reloadCaptcha()">⟳</button><br><br>
+                
+                </div>
+                <input type="text" id="captchaInput" placeholder="Enter CAPTCHA here"
+                    onkeyup="checkCaptcha(); validation()"><span id="captcha_error_msg" class="error_msg"> Please Enter
+                    Captcha</span>
+
+                <div class="gender_hobbies_section">
+                    <span class="field_name">Gender:</span> <span class="star">* </span><br>
+                    <input type="radio"
+                        name="gender" onchange="gender_check(); validation()" onclick="gender_check()">Male
+                    <input type="radio" name="gender" onchange="gender_check(); validation()"
+                        onclick="gender_check()">Female
+                    <span id="gender_error_msg" class="error_msg">Please Select Gender</span><br><br>
+
+                    <div id="hobby" onchange="hobby_check(); validation()" onclick="hobby_check()">
+                        <span class="field_name">Hobbies:</span> <span class="star">* </span> <br> <input type="checkbox"
+                            name="hobby"> Reading
+                        <input type="checkbox" name="hobby"> Writing
+                        <input type="checkbox" name="hobby"> Singing
+                        <input type="checkbox" name="hobby"> Dancing
+                        <input type="checkbox" name="hobby"> Playing sports 
+                        <input id="travelling" type="checkbox" name="hobby"> Travelling
+                        <input id="binge" type="checkbox" name="hobby"> Binge Watching
+                        <span id="hobby_error_msg" class="error_msg"> Please Select Hobbies.</span><br><br>
+                    </div>
+                </div>
+
+                <input type="submit" disabled id="submit">
+
+            </form>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

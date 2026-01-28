@@ -1,0 +1,56 @@
+.victory-body {
+    background: url("../media/bg.png") center/cover no-repeat fixed;
+    backdrop-filter: blur(6px);
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Spinning Logo */
+.kbc-logo {
+    width: 180px;
+    animation: spinSlow 10s linear infinite;
+    opacity: 0.85;
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Main Title */
+.victory-title {
+    font-size: 2.8rem;
+    text-align: center;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 0 0 18px rgba(255, 215, 0, 0.9);
+    animation: fadeUp 1.2s ease;
+}
+
+.you-won {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Animated Amount */
+.won-amount {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #ffef8a;
+    text-shadow: 0 0 12px rgba(255, 245, 140, 0.9);
+    animation: fadeUp 1.6s ease;
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Confetti canvas covers full screen */
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}

@@ -1,0 +1,45 @@
+.gameover-body {
+    background: url("../media/bg.png") center/cover no-repeat fixed;
+    backdrop-filter: blur(6px);
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+.kbc-logo {
+    width: 180px;
+    animation: spinSlow 12s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.gameover-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff5d5d;
+    text-shadow: 0 0 18px rgba(255,50,50,0.9);
+    margin-bottom: 10px;
+    animation: fadeUp 0.8s ease;
+}
+
+.you-won {
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+.won-amount {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffd75b;
+    text-shadow: 0 0 14px rgba(255,230,70,0.9);
+    animation: fadeUp 1.2s ease;
+}
+
+/* Fade + slide animation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
